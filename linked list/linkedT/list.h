@@ -64,6 +64,11 @@ public:
     }
     void clear()
     {
-        head = NULL;
+        while (head)
+        {
+            node<T> *temp = head;
+            head = head->next;
+            delete temp;
+        }
     }
 };
