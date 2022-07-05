@@ -2,7 +2,6 @@
 #include "node.h"
 using namespace std;
 
-
 template <class T>
 class BinaryTree
 {
@@ -34,7 +33,7 @@ public:
 
         return root;
     }
-    void inorder_traversal(Node<T>*root)
+    void inorder_traversal(Node<T> *root)
     {
         if (root)
         {
@@ -43,7 +42,7 @@ public:
             inorder_traversal(root->right);
         }
     }
-    void preorder_traversal(Node<T>*root)
+    void preorder_traversal(Node<T> *root)
     {
         if (root)
         {
@@ -52,7 +51,7 @@ public:
             preorder_traversal(root->right);
         }
     }
-    void postorder_traversal(Node<T>*root)
+    void postorder_traversal(Node<T> *root)
     {
         if (root)
         {
@@ -60,5 +59,13 @@ public:
             postorder_traversal(root->right);
             cout << root->data << " ";
         }
+    }
+    int heightOfTree(Node<int> *root)
+    {
+        if (!root)
+        {
+            return 0;
+        }
+        return max(1 + heightOfTree(root->left), 1 + heightOfTree(root->right));
     }
 };
