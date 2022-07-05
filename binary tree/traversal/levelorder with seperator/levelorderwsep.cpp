@@ -16,6 +16,7 @@ void levelOrder_traversal(Node<int> *root)
     {
         Node<int> *temp = q.front();
         q.pop();
+
         if (temp == NULL)
         {
             cout << "\n";
@@ -26,6 +27,7 @@ void levelOrder_traversal(Node<int> *root)
             else
             {
                 q.push(NULL);
+                continue;
             }
         }
         else
@@ -50,4 +52,6 @@ int main()
     bt.buildTree();
     cout << "level order traversal of the given tree is: \n";
     levelOrder_traversal(bt.root);
+    cout << "\nanother->\n";
+    bt.levelOrderWithSeperator(bt.root);
 }

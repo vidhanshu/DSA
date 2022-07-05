@@ -68,4 +68,74 @@ public:
         }
         return max(1 + heightOfTree(root->left), 1 + heightOfTree(root->right));
     }
+    void levelOrder(Node<int> *root)
+    {
+        if (!root)
+        {
+            return;
+        }
+        queue<Node<T> *> q;
+
+        q.push(root);
+
+        while (!q.empty())
+        {
+            Node<T> *temp = q.front();
+            cout << q.front()->data << " ";
+            q.pop();
+            if (temp->left)
+            {
+                q.push(temp->left);
+            }
+            if (temp->right)
+            {
+                q.push(temp->right);
+            }
+        }
+    }
+    void levelOrderWithSeperator(Node<T> *root)
+    {
+        if (!root)
+        {
+            return;
+        }
+
+        queue<Node<int> *> q;
+
+        q.push(root);
+        q.push(NULL);
+
+        while (!q.empty())
+        {
+            Node<T> *temp = q.front();
+            q.pop();
+            if (temp == NULL)
+            {
+                cout << "\n";
+
+                if (!q.empty())
+                {
+                    q.push(NULL);
+                    continue;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            else
+            {
+                cout << temp->data << " ";
+            }
+
+            if (temp->left)
+            {
+                q.push(temp->left);
+            }
+            if (temp->right)
+            {
+                q.push(temp->right);
+            }
+        }
+    }
 };
