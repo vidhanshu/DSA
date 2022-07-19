@@ -6,10 +6,7 @@ int main()
     q.enqueue(10);
     q.enqueue(10);
     q.enqueue(10);
-    q.enqueue(10);
-    q.enqueue(10);
-    q.enqueue(10);
-    q.enqueue(10);
+    q.dequeue();
     q.print();
     return 0;
 }
